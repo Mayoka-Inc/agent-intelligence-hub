@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --neon: #00D1FF;
+  --bg: #000;
+  --hud-line: rgba(0, 209, 255, 0.2);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  background-color: var(--bg);
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  margin: 0;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.hud {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  pointer-events: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--hud-line);
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  letter-spacing: 4px;
+}
+
+.status-bar {
+  display: flex;
+  gap: 30px;
+  font-size: 0.8rem;
+}
+
+.neon {
+  color: var(--neon);
+  text-shadow: 0 0 10px var(--neon);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  margin: 0;
+  letter-spacing: 10px;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.data-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.data-card {
+  border: 1px solid var(--hud-line);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  min-width: 200px;
+}
+
+.data-card h3 {
+  font-size: 0.7rem;
+  margin: 0;
+  color: #888;
+}
+
+.data-card .value {
+  font-size: 1.5rem;
+  color: var(--neon);
+  margin-top: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--hud-line);
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* GLITCH EFFECT */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(10px, 9999px, 20px, 0); }
+  20% { clip: rect(30px, 9999px, 40px, 0); }
+  100% { clip: rect(80px, 9999px, 90px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(15px, 9999px, 25px, 0); }
+  100% { clip: rect(85px, 9999px, 95px, 0); }
+}
